@@ -1,0 +1,26 @@
+fn main() {
+    setup(1000, 100);
+    
+    let hitColor: string = "black";
+    let missColor: string = "lightgray";
+
+    let sep: int = 10;
+    text(10, 10, "odd even");
+    for(let i: int = 0; i < 100; i++) {
+        if (i % 2 == 0)
+            setFill(hitColor);
+        else
+            setFill(missColor);
+        rect(sep * i + 10, 20, 10, 10);
+    }
+
+    setFill("black");
+    text(10, 50, "x % 7 == 0");
+    for(let i: int = 0; i < 100; i++) {
+        if (i % 7 == 0)
+            setFill(hitColor);
+        else
+            setFill(missColor);
+        rect(sep * i + 10, 60, 10, 10);
+    }
+}

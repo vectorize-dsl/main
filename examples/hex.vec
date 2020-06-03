@@ -1,0 +1,31 @@
+fn main() {
+  setup(150, 150);
+ 
+  for(let x: int = 0; x <= 10; x++) {
+    for(let y: int = 0; y <= 10; y++) {
+        if(x >= 1 && x <= 7 && y >= 3 && y <= 7)
+          hex(x, y, 1);
+        else if(x >= 1 && x <= 7 && y >= 7 && y <= 9)
+          hex(x, y, 2);
+        else
+          hex(x, y, 0);
+    } 
+  }
+}
+
+fn grid(q: int, r: int, type: int) {
+  let size: int = 5;
+  let cx: float = size * (sqrt(3) * q + sqrt(3)/2 * r);
+  let cy: float = size * (3.0/2 * r);
+
+  if (type == 0)
+    setFill("darkblue");
+  else if (type == 1)
+    setFill("darkgreen");
+  else if (type == 2)
+    setFill("darkgray");
+
+  circle(cx, cy, 4);
+}
+
+

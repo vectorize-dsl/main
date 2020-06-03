@@ -1,0 +1,44 @@
+fn main() {
+    setup(2000, 3000);
+    setFontSize(14);    
+
+    let data: float[100];
+    for(let i: int = 0; i < length(data); i++) {
+        data[i] = i * 1.0;
+    }
+
+    text(100, 10, "Histogram Function");
+    histo(data, 1, 0.0, 50.0, 1.0);
+}
+
+fn histo(data: float[], sep: int, startX: float, startY: float, scale: float) {
+    let max: float = max(data);
+    text(0 + startX, 20 + startY, "max: ");
+    text(45 + startX, 20 + startY, toString(max));
+
+    text(0 + startX, 40 + startY, "length: ");
+    text(45 + startX, 40 + startY, toString(length(data)));
+
+    for(let i: int = 0; i < length(data); i++) {
+        rect(startX + i * 10 + i * sep, startY + ((max - data[i]) * scale), 10, data[i] * scale);
+    }
+}
+
+fn max(data: float[]) -> float {
+    let max: float = data[0];
+    for(let i: int = 0; i < length(data); i++) {
+        if (data[i] > max)
+            max = data[i];
+    }
+    return max;
+}
+
+fn min(data: float[]) -> float {
+    let min: float = data[0];
+    for(let i: int = 0; i < length(data); i++) {
+        if (data[i] < min)
+            min = data[i];
+    }
+    return min;
+}
+

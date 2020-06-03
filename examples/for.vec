@@ -1,0 +1,12 @@
+fn main() {
+    setup(100, 100);
+    setStroke("black");
+    setStrokeWidth(2);
+
+    let sep: int = 10;
+    for(let i: int = 0; i < 5; i++) {
+        line(0, i * sep, 100, i * sep);
+        line(i * sep, 0, i * sep, 100);
+    }
+}
+

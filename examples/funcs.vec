@@ -1,0 +1,33 @@
+fn main() {
+    setup(400, 500);
+
+    logo(20, 20);
+
+    setStrokeWidth(1);
+	setStroke("black");
+    line(20, 65, 400, 65);
+
+    # Author
+    line(250, 20, 250, 65);
+    text(270, 45, "Martin Hochstrasser");
+
+    # Text
+    text(20, 90, "Text Text Text Text");
+}
+
+fn logo(startX: int, startY: int) {
+    let radius: int = 20;
+
+    setFill("lightblue");
+    circle(startX + 20, startY + 20, radius);
+
+    setFill("black");
+    setFontSize(18);
+    setStroke("black");
+    setStrokeWidth(2);
+    text(startX + 5, startY + 25, "Vec");
+    line(startX + 5, startY + 25, startX + 45, startY + 25);
+
+    setFontSize(14);
+    text(startX + 50, startY + 25, "DSL for SVG-Graphics");
+}

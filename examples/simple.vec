@@ -1,0 +1,17 @@
+fn main() {
+    # Set width and height of the diagram
+    setup(200, 200);
+    setStroke("black");
+
+    rect(0, 0, 10, 10);
+    rect(20, 0, 10, 10);
+    rect(40, 0, 10, 10);
+
+    rect(10, 20, 10, 10);
+    rect(30, 20, 10, 10);
+    rect(50, 20, 10, 10);
+
+    setStrokeWidth(2);
+    line(0, 100, 200, 100);
+    line(100, 0, 100, 200);
+}

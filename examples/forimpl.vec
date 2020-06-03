@@ -1,0 +1,10 @@
+fn main() {
+    setup(100, 500);
+
+    let i: int = 0;
+    while(i < 10) {
+        text(10, i * 30 + 30, toString(i));
+        
+        i = i + 1;
+    }
+}

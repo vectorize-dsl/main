@@ -1,0 +1,38 @@
+fn main() {
+    setup(2000, 1000);
+    setFontSize(14);    
+
+    let data: float[100];
+    for(let i: int = 0; i < length(data); i++) {
+        data[i] = i * 10.0;
+    }
+    let max: float = max(data);
+    text(0, 20, "max: ");
+    text(45, 20, toString(max));
+
+    text(0, 40, "length: ");
+    text(45, 40, toString(length(data)));
+
+    for(let i: int = 0; i < length(data); i++) {
+        rect(i * 10 + i * 5, max - data[i], 10, data[i]);
+    }
+}
+
+fn max(data: float[]) -> float {
+    let max: float = data[0];
+    for(let i: int = 0; i < length(data); i++) {
+        if (data[i] > max)
+            max = data[i];
+    }
+    return max;
+}
+
+fn min(data: float[]) -> float {
+    let min: float = data[0];
+    for(let i: int = 0; i < length(data); i++) {
+        if (data[i] < min)
+            min = data[i];
+    }
+    return min;
+}
+

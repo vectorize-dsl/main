@@ -1,0 +1,20 @@
+fn main() {
+  setup(500, 500);
+  setFontSize(12);
+
+  slide_with_text(0, 0, "lightblue", "01");
+  slide_with_text(110, 0, "lightgreen", "02");
+  slide_with_text(0, 110, "#F99", "03");
+  slide_with_text(110, 110, "lightyellow", "04");
+}
+
+fn slide_with_text(posX: int, posY: int, back: string, text: string) {
+  let width: int = 100;
+  let height: int = 100;
+
+  setFill(back);
+  rect(posX, posY, width, height);
+  
+  setFill("black");
+  text(posX + width / 2, posY + height / 2, text);
+}

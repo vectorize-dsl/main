@@ -1,0 +1,40 @@
+program = function, { function } ;
+
+function = "fn" ident "(" [ funcparam { "," funcparam } ] ")"
+    [ "->" type ] statement ;
+
+funccall = ident "(" [ expression { "," expression } ] ")" ;
+
+vardef = "let" ident ":" type [ "=" expression ] ;
+
+type = "int" | "float" | "bool" | "string" ;
+
+statement = block_stmt | vardef_stmt | varassign_stmt | if_stmt | for_stmt | while_stmt | return_stmt | expression ";" ;
+
+block_stmt = "{" { statement } "}" ;
+vardef_stmt = vardef ";" ;
+varassign_stmt = ident [ "[" expression "]" ] "=" expression ";" ;
+if_stmt = "if" "(" expression ")" statement {
+    "else" "if" "(" expression ")" statement }
+    [ "else" statement ] ;
+for_stmt = "for" "(" vardef ";" expression ";" expression ")" statement ;
+while_stmt = "while" "(" expression ")" statement ;
+return_stmt = "return" [ expression ] ";" ;
+
+expression = or_expression ;
+or_expression = and_expression { "||" and_expression } ;
+and_expression = relational_expression { "&&" relational_expression } ;
+relational_expression = arithmetic_expression { "==" arithmetic_expression | "!=" arithmetic_expression | "<" arithmetic_expression | "<=" arithmetic_expression | ">" arithmetic_expression | ">=" arithmetic_expression } ;
+arithmetic_expression = term { "+" term | "-" term } ;
+term = fact { "*" fact | "/" fact | "%" fact } ;
+fact = int | float | string | bool | ident | funccall | "(" expression ")" ;
+
+int = [ "-" ] digit { digit } ;
+float = [ "-" ] digit { digit } "." digit { digit } ;
+string = """ { allexcpetquote } """ ;
+bool = "true" | "false" ;
+ident = (letter | "_") { letter | "_" | digit } ;
+
+letter = ? "a" ... "z" ? | ? "A" ... "Z" ? ;
+digit = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ;
+allexcpetquote = ? visibile character without " ? ;
